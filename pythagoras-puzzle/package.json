@@ -1,0 +1,18 @@
+{
+  "name": "pythagoras-puzzle-race",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "피타고라스 정리 증명 퍼즐 10단계 레이스 (교실용, QR 접속, 실시간 순위판)",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch & npx serve dist",
+    "typecheck": "tsc --noEmit",
+    "levels": "python3 tools/gen_levels.py src/levels.json",
+    "deploy": "npm run build && firebase deploy"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.6.0"
+  }
+}

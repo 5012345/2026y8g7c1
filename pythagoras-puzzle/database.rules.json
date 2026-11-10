@@ -1,0 +1,27 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$code": {
+        ".read": true,
+        "meta": { ".write": true },
+        "stages": {
+          ".write": true,
+          "$stage": {
+            "$pid": {
+              ".validate": "newData.child('name').isString() && newData.child('name').val().length >= 1 && newData.child('name').val().length <= 10 && newData.child('ms').isNumber() && newData.child('ms').val() > 0"
+            }
+          }
+        },
+        "players": {
+          ".write": true,
+          "$pid": {
+            "name": { ".validate": "newData.isString() && newData.val().length <= 10" },
+            "best": { "$stage": { ".validate": "newData.isNumber() && newData.val() > 0" } }
+          }
+        }
+      }
+    }
+  }
+}
